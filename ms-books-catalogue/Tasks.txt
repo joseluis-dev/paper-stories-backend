@@ -1,3 +1,0 @@
-•	Conexión a la base de datos (H2) – (JOSE YEPEZ)
-•	CRUD de libros completo (GET, POST, PUT, PATCH, DELTE) – (JOSE YEPEZ)
-•	Búsqueda de libros por todos los atributos individuales o combinados (título, autor, fecha publicación, categoría, código ISBN, valoración, visibilidad) – (MELVY MARTINEZ)

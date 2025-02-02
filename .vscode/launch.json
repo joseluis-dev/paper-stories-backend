@@ -1,0 +1,34 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-EurekaApplication<eureka>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.unir.eureka.EurekaApplication",
+      "projectName": "eureka",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-GatewayAndFiltersApplication<gateway-filters>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.unir.gateway.GatewayAndFiltersApplication",
+      "projectName": "gateway-filters",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-MsBooksCatalogueApplication<ms-books-catalogue>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.paperstories.ms_books_catalogue.MsBooksCatalogueApplication",
+      "projectName": "ms-books-catalogue",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
