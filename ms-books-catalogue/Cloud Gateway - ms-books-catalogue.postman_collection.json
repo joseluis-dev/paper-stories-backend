@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "9d26927b-9c90-4024-af07-3c9e93a9849d",
+		"name": "Cloud Gateway - ms-books-catalogue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41762374"
+	},
+	"item": [
+		{
+			"name": "Get books",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"targetMethod\": \"GET\",\r\n    \"queryParams\": {\r\n        \"visible\": [false]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8762/ms-books-catalogue/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8762",
+					"path": [
+						"ms-books-catalogue",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"targetMethod\": \"GET\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8762/ms-books-catalogue/books/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8762",
+					"path": [
+						"ms-books-catalogue",
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"targetMethod\": \"DELETE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8762/ms-books-catalogue/books/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8762",
+					"path": [
+						"ms-books-catalogue",
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"targetMethod\": \"POST\",\r\n    \"body\": {\r\n        \"titulo\": \"El principito\",\r\n        \"autor\": \"Antoine de Saint-Exupéry\",\r\n        \"fechaPublicacion\": -843850800000,\r\n        \"categoria\": \"Ficción\",\r\n        \"isbn\": \"978-3-16-148410-0\",\r\n        \"valoracion\": 4.8,\r\n        \"visible\": true,\r\n        \"precio\": 15.99\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8762/ms-books-catalogue/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8762",
+					"path": [
+						"ms-books-catalogue",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar parcial book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"targetMethod\": \"PATCH\",\r\n    \"body\": {\r\n        \"titulo\": \"El principito valiente\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8762/ms-books-catalogue/books/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8762",
+					"path": [
+						"ms-books-catalogue",
+						"books",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"targetMethod\": \"PUT\",\r\n    \"body\": {\r\n        \"titulo\": \"El principito\",\r\n        \"autor\": \"Antoine de Saint-Exupéry\",\r\n        \"fechaPublicacion\": -843850800000,\r\n        \"categoria\": \"Ficción\",\r\n        \"isbn\": \"978-3-16-148410-0\",\r\n        \"valoracion\": 4.8,\r\n        \"visible\": true,\r\n        \"precio\": 15.99\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8762/ms-books-catalogue/books/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8762",
+					"path": [
+						"ms-books-catalogue",
+						"books",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

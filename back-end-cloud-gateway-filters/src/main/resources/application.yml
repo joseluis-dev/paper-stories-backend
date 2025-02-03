@@ -42,7 +42,7 @@ spring:
 management:
   endpoint:
     gateway:
-      enabled: ${ROUTE_TABLES_ENABLED:true}
+      access: ${ROUTE_TABLES_ENABLED:unrestricted}
   endpoints:
     web:
       exposure:
