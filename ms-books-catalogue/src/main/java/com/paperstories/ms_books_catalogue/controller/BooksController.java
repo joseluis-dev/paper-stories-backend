@@ -44,7 +44,7 @@ public class BooksController {
     @RequestParam(required = false) Boolean visible,
     @RequestParam(required = false) Float precio) {
 
-      log.info("headers: {}", headers);
+    log.info("headers: {}", headers);
     List<Book> books = booksService.getBooks(titulo, autor, categoria, fechaPublicacion, isbn, valoracion, visible, precio);
     return books != null ? ResponseEntity.ok(books) : ResponseEntity.ok(Collections.emptyList());
   }
