@@ -27,11 +27,18 @@ public class BooksServiceImpl implements BooksService {
   private final ObjectMapper objectMapper;
 
   @Override
-	public List<Book> getBooks(String titulo, String autor, String categoria, Date fechaPublicacion, String isbn, Float valoracion, Boolean visible, Float precio) {
+	public List<Book> getBooks(String title, String author, String category, Date releaseDate, String isbn, Float score, Boolean visible, Float price) {
 
-		// if (StringUtils.hasLength(titulo) || StringUtils.hasLength(autor) || StringUtils.hasLength(categoria) || StringUtils.hasLength(isbn) || valoracion != null || visible != null || precio != null) {
-		// 	return repository.search(titulo, autor, categoria, fechaPublicacion, isbn, valoracion, visible, precio);
-		// }
+		if (StringUtils.hasLength(title)
+				|| StringUtils.hasLength(author)
+				|| StringUtils.hasLength(category)
+				|| StringUtils.hasLength(isbn)
+				|| releaseDate != null
+				|| score != null
+				|| visible != null
+				|| price != null) {
+			return repository.search(title, author, category, releaseDate, isbn, score, visible, price);
+		}
 
 		List<Book> books = repository.getBooks();
 		return books.isEmpty() ? null : books;

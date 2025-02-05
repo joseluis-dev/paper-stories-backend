@@ -8,7 +8,7 @@ import com.paperstories.ms_books_catalogue.controller.model.CreateBookRequest;
 import com.paperstories.ms_books_catalogue.data.model.Book;
 
 public interface BooksService {
-    List<Book> getBooks(String titulo, String autor, String categoria, Date fechaPublicacion, String isbn, Float valoracion, Boolean visible, Float precio);
+    List<Book> getBooks(String title, String author, String category, Date releaseDate, String isbn, Float score, Boolean visible, Float price);
     Book getBookById(Long id);
     Book createBook(CreateBookRequest book);
     Book updateBook(Long bookID, String updateRequest);
