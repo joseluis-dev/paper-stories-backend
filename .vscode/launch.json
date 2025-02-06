@@ -8,7 +8,8 @@
       "mainClass": "com.unir.eureka.EurekaApplication",
       "projectName": "eureka",
       "args": "",
-      "envFile": "${workspaceFolder}/.env"
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=17116 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=eureka"
     },
     {
       "type": "java",
@@ -18,7 +19,8 @@
       "mainClass": "com.unir.gateway.GatewayAndFiltersApplication",
       "projectName": "gateway-filters",
       "args": "",
-      "envFile": "${workspaceFolder}/.env"
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=17137 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=gateway-filters"
     },
     {
       "type": "java",
@@ -27,6 +29,17 @@
       "cwd": "${workspaceFolder}",
       "mainClass": "com.paperstories.ms_books_catalogue.MsBooksCatalogueApplication",
       "projectName": "ms-books-catalogue",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=17151 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=ms-books-catalogue"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-MsBooksPaymentsApplication<ms-books-payments>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.paperstories.ms_books_payments.MsBooksPaymentsApplication",
+      "projectName": "ms-books-payments",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
     }
