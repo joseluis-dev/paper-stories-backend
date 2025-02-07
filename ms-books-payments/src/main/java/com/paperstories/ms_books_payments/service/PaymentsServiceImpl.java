@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 
 import com.paperstories.ms_books_payments.controller.model.PaymentDto;
 import com.paperstories.ms_books_payments.controller.model.PaymentRequest;
@@ -28,14 +30,16 @@ public class PaymentsServiceImpl implements PaymentsService {
     List<String> bookIds = paymentDtos.stream().map(PaymentDto::getBookId).collect(Collectors.toList());
     List<Book> books = bookIds.stream().map(booksFacade::getBook).filter(Objects::nonNull).toList();
 
-    if (books.size() != bookIds.size() || books.stream().anyMatch(book -> !book.getVisible())) {
-      return null;
+    if (books.size() != bookIds.size()) {
+        throw new IllegalArgumentException("Libros no encontrados: " + bookIds);
     } else {
       // Crear detalles del pago
       List<PaymentDetail> details = paymentDtos.stream().map(paymentDto -> {
         Book book = books.stream().filter(b -> b.getId().toString().equals(paymentDto.getBookId())).findFirst().orElse(null);
-        if (book == null) {
-          throw new IllegalArgumentException("Libro no encontrado: " + paymentDto.getBookId());
+
+        if ((book == null) || !book.getVisible()) {
+          throw new HttpClientErrorException(HttpStatus.NOT_FOUND, "Libro no disponible: " + paymentDto.getBookId());
+
         }
 
         Long bookId = book.getId();

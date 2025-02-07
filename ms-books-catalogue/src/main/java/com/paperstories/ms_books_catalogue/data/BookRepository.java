@@ -47,7 +47,7 @@ public class BookRepository {
     }
 
     if (StringUtils.isNotBlank(category)) {
-      spec.add(new SearchStatement(Consts.CATEGORIA, title, SearchOperation.EQUAL));
+      spec.add(new SearchStatement(Consts.CATEGORIA, category, SearchOperation.EQUAL));
     }
 
     if (StringUtils.isNotBlank(isbn)) {

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpClientErrorException;
 
 import com.paperstories.ms_books_payments.controller.model.PaymentRequest;
 import com.paperstories.ms_books_payments.data.model.Payment;
@@ -30,9 +31,16 @@ public class PaymentsController {
     public ResponseEntity<Payment> createPayment(@RequestBody @Valid PaymentRequest request) { //Se valida con Jakarta Validation API
 
         log.info("Creating payment...");
-        Payment created = service.createPayment(request);
-
-        return created != null ? ResponseEntity.status(HttpStatus.CREATED).body(created) : ResponseEntity.badRequest().build();
+        try {
+            Payment created = service.createPayment(request);
+            return created != null ? ResponseEntity.status(HttpStatus.CREATED).body(created) : ResponseEntity.badRequest().build();
+        } catch (HttpClientErrorException e) {
+            log.error("Error creating payment", e);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } catch (Exception e) {
+            log.error("Error creating payment", e);
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping("/payments")
