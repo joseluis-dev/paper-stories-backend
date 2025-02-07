@@ -1,7 +1,10 @@
 package com.paperstories.ms_books_payments.data.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,16 +31,17 @@ public class PaymentDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "bookId")
     private Long bookId;
 
-    @Column(nullable = false)
+    @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(name = "price")
     private Float price;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "payment_id", nullable = false)
+    @JsonBackReference
     private Payment payment;
 }

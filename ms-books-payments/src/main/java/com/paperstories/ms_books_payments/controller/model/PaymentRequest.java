@@ -15,8 +15,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class PaymentRequest {
   
-  @NotNull(message = "`books` cannot be null")
-	@NotEmpty(message = "`books` cannot be empty")
-	private List<String> books;
+  @NotNull(message = "`payments` cannot be null")
+	@NotEmpty(message = "`payments` cannot be empty")
+	private List<PaymentDto> payments;
 
 }

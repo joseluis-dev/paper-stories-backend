@@ -3,6 +3,7 @@ package com.paperstories.ms_books_payments.controller;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,11 +32,7 @@ public class PaymentsController {
         log.info("Creating payment...");
         Payment created = service.createPayment(request);
 
-        if (created != null) {
-            return ResponseEntity.ok(created);
-        } else {
-            return ResponseEntity.badRequest().build();
-        }
+        return created != null ? ResponseEntity.status(HttpStatus.CREATED).body(created) : ResponseEntity.badRequest().build();
     }
 
     @GetMapping("/payments")

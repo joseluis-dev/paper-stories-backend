@@ -2,6 +2,8 @@ package com.paperstories.ms_books_payments.data.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,8 +33,9 @@ public class Payment {
   private Long id;
 
   @OneToMany(mappedBy = "payment", cascade = CascadeType.ALL, orphanRemoval = true)
+  @JsonManagedReference
     private List<PaymentDetail> details;
 
-  @Column(nullable = false, precision = 10, scale = 2)
+  @Column(name = "total_amount")
   private Float totalAmount;
 }

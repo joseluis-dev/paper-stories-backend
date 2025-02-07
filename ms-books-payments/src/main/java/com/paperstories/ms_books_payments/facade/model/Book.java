@@ -25,5 +25,4 @@ public class Book {
 	private Float valoracion;
 	private Boolean visible;
 	private Float precio;
-	private int cantidad;
 }
