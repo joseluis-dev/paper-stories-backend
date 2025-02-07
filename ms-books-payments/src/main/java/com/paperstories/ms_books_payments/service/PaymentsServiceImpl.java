@@ -31,7 +31,7 @@ public class PaymentsServiceImpl implements PaymentsService {
     List<Book> books = bookIds.stream().map(booksFacade::getBook).filter(Objects::nonNull).toList();
 
     if (books.size() != bookIds.size()) {
-        throw new IllegalArgumentException("Libros no encontrados: " + bookIds);
+        throw new HttpClientErrorException(HttpStatus.NOT_FOUND, "Libros no encontrados: " + bookIds);
     } else {
       // Crear detalles del pago
       List<PaymentDetail> details = paymentDtos.stream().map(paymentDto -> {

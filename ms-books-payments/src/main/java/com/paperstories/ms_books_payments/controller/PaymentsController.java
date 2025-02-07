@@ -33,13 +33,16 @@ public class PaymentsController {
         log.info("Creating payment...");
         try {
             Payment created = service.createPayment(request);
-            return created != null ? ResponseEntity.status(HttpStatus.CREATED).body(created) : ResponseEntity.badRequest().build();
+            return ResponseEntity.status(HttpStatus.CREATED).body(created);
         } catch (HttpClientErrorException e) {
             log.error("Error creating payment", e);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             log.error("Error creating payment", e);
             return ResponseEntity.badRequest().build();
+        } catch (Exception e) {
+            log.error("Error creating payment", e);
+            return ResponseEntity.internalServerError().build();
         }
     }
 
